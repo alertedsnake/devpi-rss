@@ -15,7 +15,7 @@ try:
     from StringIO import StringIO
 except ImportError:
     from io import StringIO
-    
+
 from devpi_server.log import threadlog
 from devpi_web import description
 
@@ -100,7 +100,7 @@ def devpiserver_on_upload(stage, project, version, link):
         # taken from devpi_web.main.devpiserver_on_upload:
         # on replication or import we might be at a lower than
         # current revision and the file might have been deleted already
-        warn("ignoring lost upload: %s", link)
+        warn("ignoring lost upload: %s" % link)
 
     index_url = "%s/%s" % (server_url, stage.name)
     server_rss_dir = stage.xom.config.serverdir.join(".rss")
